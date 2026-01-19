@@ -6,7 +6,7 @@ import koreanize_matplotlib
 import datetime
 from io import BytesIO
 
-# 기본 설정
+# 기본 설정1
 st.set_page_config(page_title="Technical Analysis", layout="wide")
 st.title("🔍 주가 기술적 분석 엔진")
 
