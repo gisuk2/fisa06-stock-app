@@ -1,7 +1,15 @@
-*.txt
-
-st/
-
-!requirements.txt
-
+# 환경 변수 파일 (절대 업로드 금지)
 .env
+
+# 파이썬 가상환경 폴더
+st/
+.venv/
+env/
+
+# 파이썬 컴파일 파일
+__pycache__/
+*.pyc
+
+# 엑셀 및 임시 파일
+*.xls
+*.xlsx
