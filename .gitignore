@@ -9,7 +9,12 @@
 # 폴더는 폴더명/ 로 작성합니다.
 st/
 
+# ! not
+!requirement.txt
+!배포.txt
+
 
 =======
 /st
 >>>>>>> bb71e6703596162692c7d07c08fe45da8e0e74e7
+
