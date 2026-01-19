@@ -9,7 +9,7 @@ my_name = os.getenv('MY_NAME', '관리자')
 st.set_page_config(
     page_title=f"{my_name}의 AI 금융 분석 플랫폼",
     page_icon="📈",
-    layout="wide"
+    layout="wide",
     initial_sidebar_state="expanded"
 )
 
