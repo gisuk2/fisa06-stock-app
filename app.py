@@ -76,17 +76,38 @@ if confirm_btn:
                 
                 price_df = fdr.DataReader(stock_code, start_date, end_date)
                 
+# ... (앞부분 동일) ...
             if price_df.empty:
                 st.info("해당 기간의 주가 데이터가 없습니다.")
             else:
                 st.subheader(f"[{company_name}] 주가 데이터")
+                
+                # 1. 이동평균선 계산 (데이터프레임에 먼저 추가)
+                price_df['MA20'] = price_df['Close'].rolling(window=20).mean()
+                price_df['MA60'] = price_df['Close'].rolling(window=60).mean()
+
                 st.dataframe(price_df.tail(10), width="stretch")
 
-                # Matplotlib 시각화
+                # 2. Matplotlib 시각화 설정
                 fig, ax = plt.subplots(figsize=(12, 5))
-                price_df['Close'].plot(ax=ax, grid=True, color='red')
-                ax.set_title(f"{company_name} 종가 추이", fontsize=15)
+                
+                # 원본 종가 그리기
+                price_df['Close'].plot(ax=ax, grid=True, color='red', label='종가')
+                
+                # 이동평균선 추가로 그리기 (ax에 덧칠하는 개념)
+                ax.plot(price_df.index, price_df['MA20'], label='20일선', linestyle='--')
+                ax.plot(price_df.index, price_df['MA60'], label='60일선', linestyle='--')
+                
+                ax.set_title(f"{company_name} 종가 및 이동평균선 추이", fontsize=15)
+                ax.legend() # 범례 표시
+
+                # 3. 모든 것이 그려진 fig를 화면에 출력 (이게 마지막에 와야 함!)
                 st.pyplot(fig)
+
+                # 4. 엑셀 다운로드 기능 (이후 동일)
+# ... (뒷부분 동일) ...
+
+
 
                 # 엑셀 다운로드 기능
                 output = BytesIO()
