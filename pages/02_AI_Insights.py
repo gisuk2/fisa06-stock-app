@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="AI Insights", layout="wide")
+# st.set_page_config(page_title="AI Insights", layout="wide")
 st.title("🤖 Gemini AI 시장 인사이트")
 
 st.info("이 페이지는 Gemini API를 활용하여 고도화된 데이터 해석을 제공하는 준비 단계입니다.")
